@@ -1,0 +1,21 @@
+
+
+export const baseURL="https://tureappapiforreact.onrender.com"
+
+export const endPoints={
+    auth:{
+        signup:"/api/register",
+        signin:"/api/login",
+        update:"/api/update-password",
+        forget:"/api/forget-password",
+        dashBoard:"/api/dashboard"
+    },
+    crud:{
+        create:"/api/product/create",
+        listOfProducts:"/api/product",
+        getProduct:"api/product",
+        updateProduct:"api/product/update",
+        delete:"/api/product/delete"
+    }
+
+}
