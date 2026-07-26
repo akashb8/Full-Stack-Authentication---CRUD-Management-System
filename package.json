@@ -1,0 +1,11 @@
+{
+  "name": "redux-pr-root",
+  "private": true,
+  "workspaces": [
+    "Authapp"
+  ],
+  "scripts": {
+    "build": "cd Authapp && npm install && npm run build",
+    "dev": "cd Authapp && npm run dev"
+  }
+}

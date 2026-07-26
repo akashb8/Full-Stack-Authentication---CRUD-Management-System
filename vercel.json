@@ -1,0 +1,10 @@
+{
+  "buildCommand": "cd Authapp && npm install && npm run build",
+  "outputDirectory": "Authapp/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
