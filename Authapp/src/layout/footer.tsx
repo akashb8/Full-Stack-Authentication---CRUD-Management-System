@@ -83,20 +83,25 @@ const Footer: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Bottom Bar without harsh dark borders */}
+                    {/* Bottom Bar */}
                     <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-                        <div className="text-slate-400 text-[11px] font-bold tracking-widest uppercase">
-                            © {new Date().getFullYear()} <span className="text-pink-400 font-black">Akash Bhattacharyya</span>. All rights reserved.
-                        </div>
                         <a
                             href="https://github.com/akashb8"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2.5 bg-white/5 hover:bg-pink-600/20 border border-white/10 hover:border-pink-500/50 px-4 py-2 rounded-full text-slate-300 hover:text-white transition-all duration-300 group shadow-lg"
+                            className="text-slate-400 hover:text-pink-400 text-[11px] font-bold tracking-widest uppercase transition-colors flex items-center gap-2 group"
+                        >
+                            <span>© {new Date().getFullYear()}  All rights reserved.</span>
+                        </a>
+                        <a
+                            href="https://github.com/akashb8"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2.5 bg-white/5 hover:bg-pink-600/20 border border-white/10 hover:border-pink-500/50 px-5 py-2 rounded-full text-slate-300 hover:text-white transition-all duration-300 group shadow-lg"
                         >
                             <FaGithub className="text-pink-500 group-hover:scale-110 transition-transform" size={16} />
                             <span className="text-[11px] font-bold tracking-widest uppercase">
-                                Developed by <span className="text-pink-400 font-black group-hover:text-pink-300">Akash Bhattacharyya</span>
+                                Designed & Developed by <span className="text-pink-400 font-black group-hover:text-pink-300">Akash Bhattacharyya</span>
                             </span>
                         </a>
                     </div>
