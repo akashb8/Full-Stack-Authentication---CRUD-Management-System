@@ -17,6 +17,7 @@ This repository features a complete user authentication pipeline (JWT-based logi
 ## 📋 Table of Contents
 
 - [Features](#-features)
+- [Anti-Gravity Background Animation](#-anti-gravity-background-animation)
 - [Tech Stack](#-tech-stack)
 - [Project Architecture](#-project-architecture)
 - [Directory Structure](#-directory-structure)
@@ -49,6 +50,21 @@ This repository features a complete user authentication pipeline (JWT-based logi
 ### 🎨 User Experience & Design
 - **Responsive Layout**: Designed with **Tailwind CSS v4** for optimal layout adaptability across mobile, tablet, and desktop screens.
 - **Modern Component Architecture**: Modular TypeScript components utilizing React 19 hooks and typed interfaces.
+- **Google Anti-Gravity Cursor Physics Background**: High-performance full-screen HTML5 Canvas animation featuring single-color Electric Blue (`#3b82f6`) particles, inverse-distance anti-gravity mouse repulsion, kinetic velocity vector impulse transfer, anchor spring restoration, neural constellation link lines, and click shockwaves.
+
+---
+
+## 🌌 Anti-Gravity Background Animation
+
+The application features a custom, high-performance HTML5 Canvas physics engine (`AntiGravityBackground.tsx`) rendered silently behind all pages (`fixed inset-0 z-30 pointer-events-none`).
+
+### ⚙️ Vector Physics & Features
+- **Monochrome Electric Blue Palette**: Styled with a single professional accent color (`#3b82f6` Electric Blue) for a clean, non-intrusive executive look.
+- **Anti-Gravity Mouse Repulsion**: Cursor proximity exerts an inverse-square physics force ($F \propto (1 - d/R)^2$), smoothly deflecting nearby particles away.
+- **Kinetic Velocity Impulse Transfer**: Rapid cursor sweeps transfer velocity vectors (`mouse.vx`, `mouse.vy`) to surrounding particles.
+- **Anchor Spring Restoration**: Damped spring physics force ($F_{\text{spring}} = -k \Delta x$) gently restoring particles back to their floating base coordinates.
+- **Neural Constellation Mesh**: Distance-based link lines (`0.75px`, `opacity: 0.16`) dynamically connecting nearby floating nodes within $115\text{px}$.
+- **Radial Click Shockwaves**: Left-clicking anywhere on the screen emits an expanding radial energy pulse that displaces floating nodes with spring recoil.
 
 ---
 
@@ -59,6 +75,7 @@ This repository features a complete user authentication pipeline (JWT-based logi
 | **Frontend Framework** | [React 19](https://react.dev/) | UI library with TypeScript support |
 | **Build Tool** | [Vite 8](https://vitejs.dev/) | Next-generation fast frontend tooling |
 | **State Management** | [Redux Toolkit](https://redux-toolkit.js.org/) + [React Redux](https://react-redux.js.org/) | Global store with async thunks (`authSlice`, `crudSlice`) |
+| **Canvas Physics Engine** | HTML5 Canvas + Physics Vector Math | Custom single-color Anti-Gravity cursor animation (`AntiGravityBackground.tsx`) |
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) | Modern utility-first CSS framework |
 | **Routing** | [React Router DOM v7](https://reactrouter.com/) | Declarative client-side routing |
 | **HTTP Client** | [Axios](https://axios-http.com/) | Promise-based HTTP client with request interceptors |

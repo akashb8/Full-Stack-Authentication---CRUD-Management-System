@@ -93,14 +93,14 @@ export const AntiGravityBackground: React.FC<AntiGravityBackgroundProps> = ({
                     y,
                     baseX: x,
                     baseY: y,
-                    vx: (Math.random() - 0.5) * 0.3,
-                    vy: (Math.random() - 0.5) * 0.3,
+                    vx: (Math.random() - 0.5) * 0.25,
+                    vy: (Math.random() - 0.5) * 0.25,
                     radius,
                     color: ACCENT_COLOR.main,
                     glowColor: ACCENT_COLOR.glow,
                     alpha: baseAlpha,
                     baseAlpha,
-                    mass: radius * 0.8,
+                    mass: 1.0, // Uniform mass so all particles react identically
                     shape: shapes[Math.floor(Math.random() * shapes.length)],
                     pulseOffset: Math.random() * Math.PI * 2
                 });
@@ -229,26 +229,26 @@ export const AntiGravityBackground: React.FC<AntiGravityBackgroundProps> = ({
                 }
             }
 
-            // Particle Updates & Physics
+            // Particle Updates & Smooth Physics
             particles.forEach((p) => {
-                // Gentle Zero-G Ambient Floating
-                const floatX = Math.cos(time + p.pulseOffset) * 0.3;
-                const floatY = Math.sin(time * 0.8 + p.pulseOffset) * 0.3;
+                // Micro Ambient Zero-G Drift
+                const floatX = Math.cos(time * 0.5 + p.pulseOffset) * 0.12;
+                const floatY = Math.sin(time * 0.5 + p.pulseOffset) * 0.12;
 
-                // Base Anchor Spring Restoration Force
+                // Soft Base Anchor Spring Restoration
                 const dxBase = p.baseX - p.x;
                 const dyBase = p.baseY - p.y;
-                p.vx += dxBase * 0.002;
-                p.vy += dyBase * 0.002;
+                p.vx += dxBase * 0.0005;
+                p.vy += dyBase * 0.0005;
 
                 p.x += floatX + p.vx;
                 p.y += floatY + p.vy;
 
-                // Dampening Friction
-                p.vx *= 0.94;
-                p.vy *= 0.94;
+                // High Dampening Friction
+                p.vx *= 0.90;
+                p.vy *= 0.90;
 
-                // Anti-Gravity Mouse Cursor Repulsion & Kinetic Impulse Transfer
+                // Controlled Anti-Gravity Mouse Repulsion & Impulse
                 if (mouse.active) {
                     const dx = p.x - mouse.x;
                     const dy = p.y - mouse.y;
@@ -256,16 +256,16 @@ export const AntiGravityBackground: React.FC<AntiGravityBackgroundProps> = ({
 
                     if (dist < mouse.radius && dist > 0) {
                         const forceFactor = Math.pow(1 - dist / mouse.radius, 2);
-                        const force = (forceFactor * 10) / p.mass;
+                        const rawForce = (forceFactor * 2.5) / p.mass;
+                        const force = Math.min(rawForce, 0.7);
                         const angle = Math.atan2(dy, dx);
 
-                        // Repulsion push
                         p.vx += Math.cos(angle) * force;
                         p.vy += Math.sin(angle) * force;
 
-                        // Kinetic velocity impulse from fast mouse movements
-                        p.vx += (mouse.vx * 0.14) / p.mass;
-                        p.vy += (mouse.vy * 0.14) / p.mass;
+                        // Controlled gentle kinetic momentum transfer
+                        p.vx += (mouse.vx * 0.025) / p.mass;
+                        p.vy += (mouse.vy * 0.025) / p.mass;
                     }
                 }
 
@@ -276,19 +276,27 @@ export const AntiGravityBackground: React.FC<AntiGravityBackgroundProps> = ({
                     const dist = Math.sqrt(dx * dx + dy * dy);
                     const waveDiff = Math.abs(dist - pulse.radius);
 
-                    if (waveDiff < 40 && dist > 0) {
-                        const pushForce = ((40 - waveDiff) / 40) * (pulse.strength / p.mass) * pulse.alpha;
+                    if (waveDiff < 30 && dist > 0) {
+                        const pushForce = Math.min(((30 - waveDiff) / 30) * (pulse.strength / (p.mass * 8)) * pulse.alpha, 0.8);
                         const angle = Math.atan2(dy, dx);
                         p.vx += Math.cos(angle) * pushForce;
                         p.vy += Math.sin(angle) * pushForce;
                     }
                 });
 
-                // Screen Boundary Wrap Around
-                if (p.x < -20) p.x = width + 20;
-                if (p.x > width + 20) p.x = -20;
-                if (p.y < -20) p.y = height + 20;
-                if (p.y > height + 20) p.y = -20;
+                // Velocity Clamp - Enforce Max Speed Limit to prevent wild X/Y movement
+                const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+                const maxSpeed = 1.0;
+                if (speed > maxSpeed) {
+                    p.vx = (p.vx / speed) * maxSpeed;
+                    p.vy = (p.vy / speed) * maxSpeed;
+                }
+
+                // Screen Boundary Wrap Around with Base Anchor Reset
+                if (p.x < -20) { p.x = width + 20; p.baseX = width + 20; }
+                if (p.x > width + 20) { p.x = -20; p.baseX = -20; }
+                if (p.y < -20) { p.y = height + 20; p.baseY = height + 20; }
+                if (p.y > height + 20) { p.y = -20; p.baseY = -20; }
 
                 // Render Single-Color Particles
                 ctx.save();
