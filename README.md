@@ -12,8 +12,6 @@ A modern, production-grade full-stack web application built with **React 19**, *
 
 This repository features a complete user authentication pipeline (JWT-based login, registration, password updates, password reset flow), protected client-side routes, global state management via Redux Toolkit (`createAsyncThunk`), and full CRUD operations for data management backed by a RESTful API.
 
-![SkyMes WMS Home Page Preview](Authapp/public/homepage_preview.png)
-
 ---
 
 ## 📋 Table of Contents
@@ -59,8 +57,6 @@ This repository features a complete user authentication pipeline (JWT-based logi
 ## 🌌 Anti-Gravity Background Animation
 
 The application features a custom, high-performance HTML5 Canvas physics engine (`AntiGravityBackground.tsx`) rendered silently behind all pages (`fixed inset-0 z-30 pointer-events-none`).
-
-![Anti-Gravity Background Animation Preview](Authapp/public/homepage_preview.png)
 
 ### ⚙️ Vector Physics & Features
 - **Monochrome Electric Blue Palette**: Styled with a single professional accent color (`#3b82f6` Electric Blue) for a clean, non-intrusive executive look.

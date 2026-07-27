@@ -88,15 +88,17 @@ const Footer: React.FC = () => {
                         <div className="text-slate-400 text-[11px] font-bold tracking-widest uppercase">
                             © {new Date().getFullYear()} <span className="text-pink-400 font-black">Akash Bhattacharyya</span>. All rights reserved.
                         </div>
-                        <div className="flex items-center gap-6">
-                            <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
-                                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_#34d399]"></div>
-                                <span className="text-emerald-400 text-[10px] font-black uppercase tracking-[0.2em]">All Systems Operational</span>
-                            </div>
-                            <span className="text-slate-300 text-[11px] font-bold tracking-widest bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
-                                EST. 2024 - {new Date().getFullYear()}
+                        <a
+                            href="https://github.com/akashb8"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2.5 bg-white/5 hover:bg-pink-600/20 border border-white/10 hover:border-pink-500/50 px-4 py-2 rounded-full text-slate-300 hover:text-white transition-all duration-300 group shadow-lg"
+                        >
+                            <FaGithub className="text-pink-500 group-hover:scale-110 transition-transform" size={16} />
+                            <span className="text-[11px] font-bold tracking-widest uppercase">
+                                Developed by <span className="text-pink-400 font-black group-hover:text-pink-300">Akash Bhattacharyya</span>
                             </span>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </footer>
