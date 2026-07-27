@@ -3,7 +3,7 @@ import MissionVision from "../missionVision/MissionVision";
 
 const Home: React.FC = () => {
     return (
-        <div className="min-h-screen bg-slate-950 px-8 py-20 relative overflow-hidden flex flex-col items-center">
+        <div className="min-h-screen bg-slate-950/85 backdrop-blur-sm px-8 py-20 relative overflow-hidden flex flex-col items-center">
             
             {/* Background Luxury Accents */}
             <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-pink-600/10 blur-[150px] rounded-full animate-pulse"></div>
