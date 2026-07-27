@@ -1,4 +1,4 @@
-# 🚀 Full-Stack Authentication & CRUD Management System
+# Full-Stack Authentication & CRUD Management System
 
 ![React](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
@@ -7,8 +7,6 @@
 ![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
-
-[![Author](https://img.shields.io/badge/Author-Akash_Bhattacharyya-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/akashb8)
 
 A modern, production-grade full-stack web application built with **React 19**, **TypeScript**, **Redux Toolkit**, **Tailwind CSS v4**, **Node.js**, **Express**, and **MongoDB**. 
 
@@ -31,7 +29,6 @@ This repository features a complete user authentication pipeline (JWT-based logi
   - [Backend Setup](#1-backend-setup-restfullapinodejs)
   - [Frontend Setup](#2-frontend-setup-authapp)
 - [State Management Flow](#-state-management-flow)
-- [Author](#-author)
 - [Contributing](#-contributing)
 - [License](#-license)
 
@@ -310,14 +307,6 @@ Ensure you have the following installed on your local machine:
 
 ---
 
-## 👤 Author
-
-**Akash Bhattacharyya**
-- **GitHub**: [@akashb8](https://github.com/akashb8)
-- **Repository**: [Full-Stack-Authentication---CRUD-Management-System](https://github.com/akashb8/Full-Stack-Authentication---CRUD-Management-System)
-
----
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the issues page or submit pull requests.
@@ -336,6 +325,6 @@ This project is licensed under the **ISC License**.
 
 ---
 
-<div align="center">
-  Crafted with ❤️ by <a href="https://github.com/akashb8"><strong>Akash Bhattacharyya</strong></a>
-</div>
+<p center="align">
+  Crafted with ❤️ for building high-performance, secure React & Node.js applications.
+</p>
